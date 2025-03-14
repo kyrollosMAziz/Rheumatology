@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ee1d4127f95bcd4c8aed13d8c20fa2f, type: 3}
-  m_Name: Sequence 2
+  m_Name: Sequence 7
   m_EditorClassIdentifier: 
-  firstAudioClip: {fileID: 8300000, guid: 19a310d4ce427b04b83d95320f91cb65, type: 3}
-  secondAudioClip: {fileID: 8300000, guid: 08d58cc7abb7d0348a3d608e09259dfb, type: 3}
+  firstAudioClip: {fileID: 8300000, guid: bd1529775eafbc643a5c45a41c575127, type: 3}
+  secondAudioClip: {fileID: 0}

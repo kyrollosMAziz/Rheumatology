@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee1d4127f95bcd4c8aed13d8c20fa2f, type: 3}
   m_Name: Sequence
   m_EditorClassIdentifier: 
-  firstAudioClip: {fileID: 8300000, guid: 74abe06a920b646449f147809ee3f229, type: 3}
-  secondAudioClip: {fileID: 8300000, guid: b2bccc92b3113f44d94a501f51197a2c, type: 3}
-  firstCameraTarget: {fileID: 0}
-  secondCameraTarget: {fileID: 0}
+  firstAudioClip: {fileID: 8300000, guid: 49e60dfd9503f714b814cab0ee46b3c2, type: 3}
+  secondAudioClip: {fileID: 8300000, guid: dfa88432ac337f840b29c81347419b35, type: 3}

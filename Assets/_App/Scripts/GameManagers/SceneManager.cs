@@ -4,32 +4,56 @@ using UnityEngine;
 
 public class SceneManager : GenericSingleton<SceneManager>
 {
-    public Stack<GameSequence> GameEventsStack;
+    public Queue<GameSequence> GameEventsQueue;
     public List<GameSequence> GameEvents;
     public List<IQuestionAnswered> QuestionsAnswered;
-
+    private bool isCursorActive;
+    public bool IsCursorActive
+    {
+        set
+        {
+            isCursorActive = value;
+            if (!isCursorActive) 
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+    }
+    //Cursor.lockState = CursorLockMode.Locked; // Locks the cursor in the center
+    //Cursor.visible = false; // Hides the cursor
     private void Awake()
     {
-        GameEventsStack = new Stack<GameSequence>(GameEvents);
+        IsCursorActive = false;
+        GameEventsQueue = new Queue<GameSequence>(GameEvents);
     }
     private void Start()
     {
         DialoguesManager.Instance.currentSequence = PopGameSequence();
         DialoguesManager.Instance.StartDialogueSequenceHandler();
+        UIManager.Instance.HideEndGameCanvas();
     }
-    public GameSequence PopGameSequence() 
+    public GameSequence PopGameSequence()
     {
-        if (GameEventsStack.Count == 0) 
+        if (GameEventsQueue.Count == 0)
         {
-            EndGame();
             return null;
         }
-        return GameEventsStack.Pop();
+
+        return GameEventsQueue.Dequeue();
     }
-    private void EndGame() 
+    public void EndGame()
     {
-        Debug.Log("Game Over");
+        UIManager.Instance.ShowEndGameCanvas();
+        CameraControl.Instance.LockCamera();
+        IsCursorActive = true;
     }
+
     #region ObserverPattern
     //public void AssignQuestionAnsweredListeners(IQuestionAnswered questionAnsweredListeners)
     //{

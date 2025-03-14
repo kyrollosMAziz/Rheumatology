@@ -30,9 +30,7 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
             //SceneManager.Instance.InvokeQuestionListeners();
             //SceneManager.Instance.RemoveQuestionAnsweredListeners();
             #endregion
-            DialoguesManager.Instance.StartDialogueSequenceHandler();
-            QuestionsManager.Instance.EnableNextQuestion();
-            canvas.gameObject.SetActive(false);
+            CorrectAnswer();
         }
         else
         {
@@ -40,7 +38,11 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
             answerButtons[currentQuestion.correctAnswerIndex].GetComponent<Image>().color = Color.green;
         }
     }
-
+    public void CorrectAnswer() 
+    {
+        DialoguesManager.Instance.StartDialogueSequenceHandler();
+        QuestionsManager.Instance.HideQuestion();
+    }
     public void OnQuestionAnswered()
     {
         //throw new System.NotImplementedException();

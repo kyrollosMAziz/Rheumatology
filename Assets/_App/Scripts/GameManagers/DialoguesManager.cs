@@ -14,6 +14,12 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
     }
     public void StartDialogueSequenceHandler(float m_delay = 0)
     {
+        SceneManager.Instance.IsCursorActive = false;
+        if (!currentSequence) 
+        {
+            SceneManager.Instance.EndGame();
+            return;
+        }
         if (m_delay > 0)//overwrite based on sequence
         {
             delay = m_delay;
@@ -34,16 +40,18 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
     {
         if (currentSequence.secondAudioClip == null)
         {
-            currentSequence = SceneManager.Instance.PopGameSequence();
-            QuestionsManager.Instance.EnableNextQuestion();
+            LoadNextQuestion();
+            return;
         }
-        else
+        StartCoroutine(PlayAudio(currentSequence.secondAudioClip, () =>
         {
-            StartCoroutine(PlayAudio(currentSequence.secondAudioClip, () =>
-            {
-                currentSequence = SceneManager.Instance.PopGameSequence();
-                QuestionsManager.Instance.EnableNextQuestion();
-            }));
-        }
+            LoadNextQuestion();
+        }));
+    }
+    private void LoadNextQuestion() 
+    {
+        SceneManager.Instance.IsCursorActive = true;
+        QuestionsManager.Instance.EnableNextQuestion();
+        currentSequence = SceneManager.Instance.PopGameSequence();
     }
 }
