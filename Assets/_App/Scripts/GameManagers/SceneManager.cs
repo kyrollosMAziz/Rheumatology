@@ -7,13 +7,21 @@ public class SceneManager : GenericSingleton<SceneManager>
     public Queue<GameSequence> GameEventsQueue;
     public List<GameSequence> GameEvents;
     public List<IQuestionAnswered> QuestionsAnswered;
+    public enum GameSequencePhase
+    {
+        phase0 = 0, phase1 = 1, phase2 = 2,
+        phase3 = 3, phase4 = 4, phase5 = 5, 
+        phase6 = 6, phase7 = 7, phase8 = 8,
+        phase9 = 9
+    };
+
     private bool isCursorActive;
     public bool IsCursorActive
     {
         set
         {
             isCursorActive = value;
-            if (!isCursorActive) 
+            if (!isCursorActive)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -25,8 +33,7 @@ public class SceneManager : GenericSingleton<SceneManager>
             }
         }
     }
-    //Cursor.lockState = CursorLockMode.Locked; // Locks the cursor in the center
-    //Cursor.visible = false; // Hides the cursor
+
     private void Awake()
     {
         IsCursorActive = false;
@@ -38,9 +45,10 @@ public class SceneManager : GenericSingleton<SceneManager>
         DialoguesManager.Instance.StartDialogueSequenceHandler(2);
         UIManager.Instance.HideEndGameCanvas();
     }
-    public void LoadSequence() 
+    public void LoadSequence()
     {
-        DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+        //DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+        //PlayerManager.Move
         QuestionsManager.Instance.HideQuestion();
     }
     public GameSequence PopGameSequence()
