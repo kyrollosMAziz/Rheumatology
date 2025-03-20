@@ -35,8 +35,13 @@ public class SceneManager : GenericSingleton<SceneManager>
     private void Start()
     {
         DialoguesManager.Instance.currentSequence = PopGameSequence();
-        DialoguesManager.Instance.StartDialogueSequenceHandler();
+        DialoguesManager.Instance.StartDialogueSequenceHandler(2);
         UIManager.Instance.HideEndGameCanvas();
+    }
+    public void LoadSequence() 
+    {
+        DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+        QuestionsManager.Instance.HideQuestion();
     }
     public GameSequence PopGameSequence()
     {

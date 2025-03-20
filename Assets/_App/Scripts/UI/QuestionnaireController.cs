@@ -40,8 +40,7 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
     }
     public void CorrectAnswer() 
     {
-        DialoguesManager.Instance.StartDialogueSequenceHandler();
-        QuestionsManager.Instance.HideQuestion();
+        SceneManager.Instance.LoadSequence();
     }
     public void OnQuestionAnswered()
     {
