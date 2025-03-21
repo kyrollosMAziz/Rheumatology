@@ -1,18 +1,118 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerCameraContainer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform target;
+    public float moveSmoothSpeed = 5f;
+    public float lookSmoothSpeed = 5f;
+    public float minDistance = 0.1f;
+
+    [SerializeField] private Transform _doctor;
+
+    public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex)
     {
-        
+        if (waypointSerialized.waypoints.Count <= waypointIndex)
+        {
+            LookAtDoctor();
+            return;
+        }
+        target = waypointSerialized.waypoints[waypointIndex];
+        if (target == null) return;
+
+        StartCoroutine(initiateMovement());
+
+        IEnumerator initiateMovement()
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            while (distance > minDistance)
+            {
+                Vector3 targetPosition = target.position;
+                transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmoothSpeed * Time.deltaTime);
+                distance = Vector3.Distance(transform.position, target.position);
+                if (distance < minDistance)
+                {
+                    Debug.Log("waslt");
+                    waypointIndex++;
+                    MoveToTarget(waypointSerialized, waypointIndex);
+                    yield return new WaitForEndOfFrame();
+                    break;
+                }
+
+                Vector3 direction = target.position - transform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+    }
+    public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex, UnityAction unityAction = null)
+    {
+        if (waypointSerialized.waypoints.Count <= waypointIndex)
+        {
+            LookAtDoctor(unityAction);
+            return;
+        }
+        target = waypointSerialized.waypoints[waypointIndex];
+        if (target == null) 
+            return;
+
+        StartCoroutine(initiateMovement());
+
+        IEnumerator initiateMovement()
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            while (distance > minDistance)
+            {
+                Vector3 targetPosition = target.position;
+                transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmoothSpeed * Time.deltaTime);
+                distance = Vector3.Distance(transform.position, target.position);
+                if (distance < minDistance)
+                {
+                    Debug.Log("waslt");
+                    waypointIndex++;
+                    MoveToTarget(waypointSerialized, waypointIndex, unityAction);
+                    yield return new WaitForEndOfFrame();
+                    break;
+                }
+
+                Vector3 direction = target.position - transform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void LookAtDoctor(UnityAction unityAction = null)
     {
-        
+        PostProcessingManager.Instance.ToggleVolume(true, () =>
+        {
+            transform.LookAt(_doctor);
+            PostProcessingManager.Instance.ToggleVolume(false);
+            if (unityAction != null) unityAction();
+        });
+
     }
+
+    //private void Update()
+    //{
+    //    if (target == null) return;
+
+    //    float distance = Vector3.Distance(transform.position, target.position);
+
+    //    if (distance > minDistance)
+    //    {
+    //        Vector3 targetPosition = target.position;
+    //        transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmoothSpeed * Time.deltaTime);
+    //    }
+    //    Vector3 direction = target.position - transform.position;
+    //    Quaternion targetRotation = Quaternion.LookRotation(direction);
+    //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+    //}
+
 }

@@ -37,10 +37,23 @@ public class SceneManager : GenericSingleton<SceneManager>
         DialoguesManager.Instance.StartDialogueSequenceHandler(2);
         UIManager.Instance.HideEndGameCanvas();
     }
-    public void LoadSequence()
+    #region test
+    private void Update()
     {
-        //DialoguesManager.Instance.StartDialogueSequenceHandler(2);
-        //PlayerManager.Move
+        if (Input.GetKeyUp(KeyCode.L))
+            WaypointManager.Instance.InitiateWaypointMovement(0, PlayerManager.Instance.CameraContainer.transform);
+    }
+    #endregion
+    public void LoadNextSequence(GameSequencePhase phase)
+    {
+        CameraControl.Instance.LockCamera();
+        WaypointManager.Instance.InitiateWaypointMovement(phase,
+            PlayerManager.Instance.CameraContainer.transform,
+            () =>
+            {
+                DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+                CameraControl.Instance.UnlockCamera();
+            });
         QuestionsManager.Instance.HideQuestion();
     }
     public GameSequence PopGameSequence()

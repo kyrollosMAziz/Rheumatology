@@ -9,7 +9,7 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
     public TMP_Text questionText;
     public QuestionData currentQuestion;
     public Button[] answerButtons;
-
+    public GameSequencePhase questionPhase;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
     }
     public void CorrectAnswer() 
     {
-        SceneManager.Instance.LoadSequence();
+        SceneManager.Instance.LoadNextSequence(questionPhase);
     }
     public void OnQuestionAnswered()
     {

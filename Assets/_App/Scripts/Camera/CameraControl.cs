@@ -46,4 +46,8 @@ public class CameraControl : GenericSingleton<CameraControl>
         transform.position = originalTransform.position; 
         transform.rotation = originalTransform.rotation;
     }
+    public void UnlockCamera() 
+    {
+        isCameraControl = true;
+    }
 }

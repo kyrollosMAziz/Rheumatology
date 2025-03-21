@@ -11,6 +11,14 @@ public class PostProcessingManager : GenericSingleton<PostProcessingManager>
     private Vignette vignette;
     private float intensity;
 
+    #region testing
+    public bool testing;
+    private void Awake()
+    {
+        if(testing) volume.gameObject.SetActive(false);
+    }
+    #endregion
+
     void Start()
     {
         if (volume == null)
@@ -35,21 +43,23 @@ public class PostProcessingManager : GenericSingleton<PostProcessingManager>
             if (isEnable)
             {
                 volume.enabled = true;
-                while (vignette.intensity.value != 1)
+                while (vignette.intensity.value < 1)
                 {
                     intensity += 0.01f;
                     yield return new WaitForSeconds(0.01f);
                     vignette.intensity.Override(intensity);
                 }
+                vignette.intensity.value = 1;
             }
             else
             {
-                while (vignette.intensity.value != 0)
+                while (vignette.intensity.value > 0)
                 {
                     intensity -= 0.01f;
                     yield return new WaitForSeconds(0.01f);
                     vignette.intensity.Override(intensity);
                 }
+                vignette.intensity.value = 0;
                 volume.enabled = false;
             }
             if (unityAction != null) unityAction();
