@@ -1559,6 +1559,27 @@ MonoBehaviour:
   - waypoints:
     - {fileID: 1648047997}
     sequencePhase: 2
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 3
+  - waypoints:
+    - {fileID: 825284927}
+    sequencePhase: 4
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 5
+  - waypoints:
+    - {fileID: 1648047997}
+    sequencePhase: 6
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 7
+  - waypoints:
+    - {fileID: 825284927}
+    sequencePhase: 8
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 9
 --- !u!114 &368139858
 MonoBehaviour:
   m_ObjectHideFlags: 0
