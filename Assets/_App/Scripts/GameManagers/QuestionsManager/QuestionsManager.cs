@@ -15,14 +15,17 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
         }
         questionsLinkedList = new LinkedList<GameObject>(questions);
     }
-
+    public void OnQuestionAnswered(string index)
+    {
+        GameSequencePhase gameSequencePhase = (GameSequencePhase)int.Parse(index);
+        SceneManager.Instance.LoadNextSequence(gameSequencePhase);
+    }
     public void EnableNextQuestion() 
     {
         if (currentNode == null) 
         {
             Debug.Log("first question");
             currentNode = questionsLinkedList.First;
-            currentNode.Value.gameObject.SetActive(true);
             return;
         }
         else if (currentNode.Next == null) 
@@ -31,7 +34,7 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
         }
         currentNode.Value.gameObject.SetActive(false);
         currentNode = currentNode.Next;
-        currentNode.Value.gameObject.SetActive(true);
+        //currentNode.Value.gameObject.SetActive(true);
     }
     public void ShowQuestion() 
     {
@@ -40,5 +43,13 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
     public void HideQuestion()
     {
         if (currentNode != null  && currentNode.Value != null) currentNode.Value.gameObject.SetActive(false);
+    }
+    public string GetQuestionIndex() 
+    {
+        var questionnaire = currentNode.Value.GetComponent<QuestionnaireController>();
+        GameSequencePhase questionPhase = questionnaire.questionPhase;
+        int index = (int)questionPhase;
+
+        return index.ToString();
     }
 }

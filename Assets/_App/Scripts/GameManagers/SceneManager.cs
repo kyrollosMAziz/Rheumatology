@@ -54,7 +54,7 @@ public class SceneManager : GenericSingleton<SceneManager>
                 DialoguesManager.Instance.StartDialogueSequenceHandler(2);
                 CameraControl.Instance.UnlockCamera();
             });
-        QuestionsManager.Instance.HideQuestion();
+        //QuestionsManager.Instance.HideQuestion();
     }
     public GameSequence PopGameSequence()
     {

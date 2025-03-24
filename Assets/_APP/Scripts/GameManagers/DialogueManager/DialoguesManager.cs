@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,10 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
     public GameSequence currentSequence;
     public float delay;
     AudioSource audioSource;
-
+#if !UNITY_EDITOR && UNITY_WEBGL
+      [DllImport("__Internal")]
+      private static extern void OpenQuestion(string questionIndex);
+#endif
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -15,7 +19,7 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
     public void StartDialogueSequenceHandler(float m_delay = 0)
     {
         SceneManager.Instance.IsCursorActive = false;
-        if (!currentSequence) 
+        if (!currentSequence)
         {
             SceneManager.Instance.EndGame();
             return;
@@ -48,10 +52,19 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
             LoadNextQuestion();
         }));
     }
-    private void LoadNextQuestion() 
+    //TODO: Marwan => Open Question from Boda's front end
+    private void LoadNextQuestion()
     {
         SceneManager.Instance.IsCursorActive = true;
         QuestionsManager.Instance.EnableNextQuestion();
+        var questionIndex = QuestionsManager.Instance.GetQuestionIndex();
+        if (!string.IsNullOrEmpty(questionIndex)) 
+        {
+
+#if !UNITY_EDITOR && UNITY_WEBGL
+            OpenQuestion(questionIndex);
+#endif
+        }
         currentSequence = SceneManager.Instance.PopGameSequence();
     }
 }
