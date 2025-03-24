@@ -14,7 +14,6 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
             questions.Add(child.gameObject);
         }
         questionsLinkedList = new LinkedList<GameObject>(questions);
-        currentNode = questionsLinkedList.First;
         Debug.Log(questionsLinkedList.Count);
     }
     public void OnQuestionAnswered(string index)
@@ -28,6 +27,7 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
         {
             Debug.Log("first question");
             currentNode = questionsLinkedList.First;
+            //ShowQuestion();
             return;
         }
         else if (currentNode.Next == null) 
