@@ -94,6 +94,7 @@ public class PlayerCameraContainer : MonoBehaviour
         {
             transform.LookAt(_doctor);
             PostProcessingManager.Instance.ToggleVolume(false);
+            QuestionsManager.Instance.HideQuestion();
             if (unityAction != null) unityAction();
         });
 

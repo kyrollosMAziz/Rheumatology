@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/clinic_room.unity
     guid: 755f64480b69c5547bb17621211fc333
+  - enabled: 1
+    path: Assets/_APP/Scenes/ClinicRoom_Dev.unity
+    guid: c14233688d97893439bc6207aa297926
   m_configObjects: {}

@@ -9,7 +9,7 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
 
     private void Awake()
     {
-        foreach (Transform child in transform) 
+        foreach (Transform child in transform)
         {
             questions.Add(child.gameObject);
         }
@@ -21,32 +21,32 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
         GameSequencePhase gameSequencePhase = (GameSequencePhase)int.Parse(index);
         SceneManager.Instance.LoadNextSequence(gameSequencePhase);
     }
-    public void EnableNextQuestion() 
+    public void EnableNextQuestion()
     {
-        if (currentNode == null) 
+        if (currentNode == null)
         {
             Debug.Log("first question");
             currentNode = questionsLinkedList.First;
-            //ShowQuestion();
+            ShowQuestion();
             return;
         }
-        else if (currentNode.Next == null) 
+        else if (currentNode.Next == null)
         {
             Debug.Log("Last Question");
         }
-        currentNode.Value.gameObject.SetActive(false);
+        HideQuestion();
         currentNode = currentNode.Next;
-        currentNode.Value.gameObject.SetActive(true);
+        ShowQuestion();
     }
-    public void ShowQuestion() 
+    public void ShowQuestion()
     {
-        if( currentNode != null && currentNode.Value!= null) currentNode.Value.gameObject.SetActive(true);
+        if (currentNode != null && currentNode.Value != null) currentNode.Value.gameObject.SetActive(true);
     }
     public void HideQuestion()
     {
-        if (currentNode != null  && currentNode.Value != null) currentNode.Value.gameObject.SetActive(false);
+        if (currentNode != null && currentNode.Value != null) currentNode.Value.gameObject.SetActive(false);
     }
-    public string GetQuestionIndex() 
+    public string GetQuestionIndex()
     {
         var questionnaire = currentNode.Value.GetComponent<QuestionnaireController>();
         GameSequencePhase questionPhase = questionnaire.questionPhase;
