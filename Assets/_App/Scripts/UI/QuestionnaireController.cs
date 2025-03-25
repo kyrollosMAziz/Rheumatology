@@ -23,8 +23,7 @@ public class QuestionnaireController : MonoBehaviour
     }
     public void OnQuestionAnswered(int index)
     {
-        GameSequencePhase gameSequencePhase = (GameSequencePhase) index;
-        SceneManager.Instance.LoadNextSequence(gameSequencePhase);
+        CorrectAnswer();
     }
     void CheckAnswer(int selectedIndex)
     {

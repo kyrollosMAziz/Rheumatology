@@ -1559,6 +1559,27 @@ MonoBehaviour:
   - waypoints:
     - {fileID: 1648047997}
     sequencePhase: 2
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 3
+  - waypoints:
+    - {fileID: 825284927}
+    sequencePhase: 4
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 5
+  - waypoints:
+    - {fileID: 1648047997}
+    sequencePhase: 6
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 7
+  - waypoints:
+    - {fileID: 825284927}
+    sequencePhase: 8
+  - waypoints:
+    - {fileID: 199856257}
+    sequencePhase: 9
 --- !u!114 &368139858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6581,7 +6602,7 @@ Transform:
   m_GameObject: {fileID: 1648047996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.582, y: 0, z: -2.189}
+  m_LocalPosition: {x: 0.915, y: 0.136, z: -2.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
