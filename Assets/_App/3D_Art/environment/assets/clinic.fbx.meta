@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ChromDark
+    second: {fileID: 2100000, guid: d96c9b5b7c4cc3741b257da5bf5fcf57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: DoorHandle3
     second: {fileID: 2100000, guid: 739ab54b972b6c547871f2bab86301d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LichtFront
+    second: {fileID: 2100000, guid: 40e2997c0f1dac74593c632ead291770, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -137,6 +147,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_xrayh
+    second: {fileID: 2100000, guid: 9657311d241349145860b753271d01f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: X_rayf
+    second: {fileID: 2100000, guid: 432726ac242fcd249be02f6bd9944a4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: blinn2
     second: {fileID: 2100000, guid: 52d82685b54a54645a49318f569c6c33, type: 2}
   - first:
@@ -154,6 +174,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: standardSurface15
     second: {fileID: 2100000, guid: 8fccb6cd52753cd4b9b3e0cf63a711fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface2
+    second: {fileID: 2100000, guid: c49202b9f1cbc9e42838409866a7663c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
