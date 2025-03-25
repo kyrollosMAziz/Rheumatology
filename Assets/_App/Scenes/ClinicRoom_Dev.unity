@@ -819,6 +819,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -862,7 +867,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -1511,6 +1516,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1554,7 +1564,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -2717,6 +2727,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3343,6 +3358,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3386,7 +3406,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -5030,6 +5050,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5073,7 +5098,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -5523,6 +5548,50 @@ Transform:
   - {fileID: 848118146}
   - {fileID: 1890998826}
   - {fileID: 2043295633}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1342455453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342455455}
+  - component: {fileID: 1342455454}
+  m_Layer: 0
+  m_Name: webgl focus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342455454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342455453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca8a272abdc08d4ea5feb3e2f0442aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1342455455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342455453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.44, z: -6.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405700046
@@ -6025,6 +6094,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -6068,7 +6142,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -7958,6 +8032,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8001,7 +8080,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -8680,6 +8759,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8723,7 +8807,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -9140,6 +9224,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9183,7 +9272,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -9645,6 +9734,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733904971}
+    - target: {fileID: 6505819491945543447, guid: 75c75d9ff7416594e8d6d462729a9ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700917509953467808, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9688,7 +9782,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -9839,3 +9933,4 @@ SceneRoots:
   - {fileID: 36699869}
   - {fileID: 1405700047}
   - {fileID: 1209624005}
+  - {fileID: 1342455455}
