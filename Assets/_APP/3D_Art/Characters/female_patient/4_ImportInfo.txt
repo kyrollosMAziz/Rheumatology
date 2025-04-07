@@ -1,4 +1,4 @@
-logType=HighQuality
+logType=Basic
 generation=GameBase
 isLOD=false
 qualEyes=Parallax
