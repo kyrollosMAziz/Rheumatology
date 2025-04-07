@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Sequence 7
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: bd1529775eafbc643a5c45a41c575127, type: 3}
+  firstAudioClipText: "We\u2019ll monitor your liver function, blood counts, and
+    cholesterol while you\u2019re on Olumiant."
   secondAudioClip: {fileID: 0}
+  secondAudioClipText: 

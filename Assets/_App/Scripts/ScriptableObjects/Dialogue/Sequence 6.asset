@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Sequence 6
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: 4db35e2ab919d11489bd6e839deac031, type: 3}
+  firstAudioClipText: How does Olumiant work, and what should I expect?
   secondAudioClip: {fileID: 8300000, guid: 297880dd1adcd2144b4fa33c36100a6d, type: 3}
+  secondAudioClipText: Olumiant works by blocking a specific enzyme, JAK, involved
+    in the inflammation process in rheumatoid arthritis.

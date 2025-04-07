@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Sequence 9
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: 54723f87182918f4c919221e1b324b8a, type: 3}
+  firstAudioClipText: "Our goal is to improve your joint function and quality of
+    life while preventing further damage. I\u2019m glad to see your progress."
   secondAudioClip: {fileID: 0}
+  secondAudioClipText: 

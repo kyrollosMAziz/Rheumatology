@@ -4,5 +4,7 @@ using UnityEngine;
 public class GameSequence : ScriptableObject
 {
     public AudioClip firstAudioClip;
+    public string firstAudioClipText;
     public AudioClip secondAudioClip;
+    public string secondAudioClipText;
 }
