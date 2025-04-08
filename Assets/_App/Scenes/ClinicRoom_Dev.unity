@@ -867,7 +867,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -1564,7 +1564,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -3522,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -5348,7 +5348,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -6392,7 +6392,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -8406,7 +8406,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -9133,7 +9133,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -9598,7 +9598,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
@@ -10108,7 +10108,7 @@ PrefabInstance:
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
       propertyPath: questionPhase
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8403114421817440004, guid: 75c75d9ff7416594e8d6d462729a9ed1,
         type: 3}
