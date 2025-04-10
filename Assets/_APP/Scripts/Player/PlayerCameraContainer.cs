@@ -87,7 +87,6 @@ public class PlayerCameraContainer : MonoBehaviour
         }
     }
 
-
     public void LookAtDoctor(UnityAction unityAction = null)
     {
         PostProcessingManager.Instance.ToggleVolume(true, () =>

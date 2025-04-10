@@ -56,7 +56,6 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
             LoadNextQuestion();
             return;
         }
-
         StartCoroutine(PlayAudio(currentSequence.secondAudioClip, currentSequence.secondAudioClipText,
             () => { LoadNextQuestion(); }));
     }

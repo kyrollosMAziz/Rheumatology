@@ -9,13 +9,15 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
 
     private void Awake()
     {
+        int i = 0;
         foreach (Transform child in transform)
         {
+            child.gameObject.GetComponent<QuestionnaireController>().questionPhase = (GameSequencePhase) i;
             questions.Add(child.gameObject);
+            i++;
         }
 
         questionsLinkedList = new LinkedList<GameObject>(questions);
-        Debug.Log(questionsLinkedList.Count);
     }
 
     public void OnQuestionAnswered(string index)
