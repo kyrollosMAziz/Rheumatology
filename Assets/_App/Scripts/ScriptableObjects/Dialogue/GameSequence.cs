@@ -7,4 +7,6 @@ public class GameSequence : ScriptableObject
     public string firstAudioClipText;
     public AudioClip secondAudioClip;
     public string secondAudioClipText;
+    public string patientAnimationState;
+    public string doctorAnimationState;
 }

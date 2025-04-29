@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ public class PlayerCameraContainer : MonoBehaviour
     public float lookSmoothSpeed = 5f;
     public float minDistance = 0.1f;
 
-    [SerializeField] private Transform _doctor;
+    [SerializeField] Transform _patientPosition;
 
     public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex)
     {
@@ -86,12 +87,14 @@ public class PlayerCameraContainer : MonoBehaviour
             }
         }
     }
-
+    
     public void LookAtDoctor(UnityAction unityAction = null)
     {
         PostProcessingManager.Instance.ToggleVolume(true, () =>
         {
-            transform.LookAt(_doctor);
+            var phase = SceneManager.Instance.currentPhase;
+            _patientPosition = SceneManager.Instance.SerializedPatientPositions.FirstOrDefault(p=>p.Phase == phase).patientPostion;
+            transform.LookAt(_patientPosition);
             QuestionsManager.Instance.HideQuestion();
             PostProcessingManager.Instance.ToggleVolume(false);
             if (unityAction != null) unityAction();

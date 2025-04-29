@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneManager : GenericSingleton<SceneManager>
 {
+    public List<SerializedPatientPosition> SerializedPatientPositions;
+        
     public Queue<GameSequence> GameEventsQueue;
     public List<GameSequence> GameEvents;
     public List<IQuestionAnswered> QuestionsAnswered;
@@ -25,6 +28,7 @@ public class SceneManager : GenericSingleton<SceneManager>
             }
         }
     }
+    public GameSequencePhase currentPhase;
 
     private void Awake()
     {
@@ -34,7 +38,7 @@ public class SceneManager : GenericSingleton<SceneManager>
     private void Start()
     {
         DialoguesManager.Instance.currentSequence = PopGameSequence();
-        DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+        DialoguesManager.Instance.StartDialogueSequenceHandler(3);
         UIManager.Instance.HideEndGameCanvas();
     }
     #region test
@@ -51,11 +55,43 @@ public class SceneManager : GenericSingleton<SceneManager>
             PlayerManager.Instance.CameraContainer.transform,
             () =>
             {
+                SceneManager.Instance.SetPlayerPateintTarget();
                 DialoguesManager.Instance.StartDialogueSequenceHandler(2);
                 CameraControl.Instance.UnlockCamera();
+                SceneManager.Instance.PlaySequenceAnimation();
             });
         //QuestionsManager.Instance.HideQuestion();
     }
+
+    private void SetPlayerPateintTarget(GameSequencePhase gameSequencePhase)
+    {
+        currentPhase = gameSequencePhase;
+    }
+
+    public GameSequencePhase GetCurrentPhase() 
+    {
+        return currentPhase;
+    }
+    private void PlaySequenceAnimation()
+    {
+        if (!string.IsNullOrEmpty(DialoguesManager.Instance.currentSequence.patientAnimationState))
+        {
+            Pateint.Instance.Animate(DialoguesManager.Instance.currentSequence.patientAnimationState);
+        }
+        else
+        {
+            Pateint.Instance.Animate("idle");
+        }
+        if (!string.IsNullOrEmpty(DialoguesManager.Instance.currentSequence.doctorAnimationState))
+        {
+            Doctor.Instance.Animate(DialoguesManager.Instance.currentSequence.doctorAnimationState);
+        }
+        else
+        {
+            Doctor.Instance.Animate("idle");
+        }
+    }
+
     public GameSequence PopGameSequence()
     {
         if (GameEventsQueue.Count == 0)
