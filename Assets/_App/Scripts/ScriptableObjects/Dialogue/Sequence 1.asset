@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Sequence 1
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: 661bd9520cf65be45b6a4b77ff5ba8af, type: 3}
+  firstAudioClipText: "Let\u2019s start by going through your medical history in
+    more detail. How long have you been experiencing these symptoms, and have you
+    noticed any other changes, such as swelling or fever?"
   secondAudioClip: {fileID: 8300000, guid: 1acfe9c89e984e54db672953c6e66e3f, type: 3}
+  secondAudioClipText: My symptoms started about six months ago. I noticed some swelling
+    in my fingers and sometimes had low-grade fevers. My mother was diagnosed with
+    rheumatoid arthritis in her 50s.

@@ -3,23 +3,28 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
-public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
+public class QuestionnaireController : MonoBehaviour
 {
     public GameObject canvas;
     public TMP_Text questionText;
     public QuestionData currentQuestion;
     public Button[] answerButtons;
-
+    public GameSequencePhase questionPhase;
 
     private void Awake()
     {
         questionText.text = string.Empty;
         questionText.text = currentQuestion.questionText;
     }
+    public void OnQuestionAnswered(string index)
+    {
+        GameSequencePhase gameSequencePhase = (GameSequencePhase) int.Parse(index);
+        SceneManager.Instance.LoadNextSequence(gameSequencePhase);
+    }
     public void OnQuestionAnswered(int index)
     {
-        CheckAnswer(index);}
-
+        CorrectAnswer();
+    }
     void CheckAnswer(int selectedIndex)
     {
         if (selectedIndex == currentQuestion.correctAnswerIndex)
@@ -38,10 +43,10 @@ public class QuestionnaireController : MonoBehaviour, IQuestionAnswered
             answerButtons[currentQuestion.correctAnswerIndex].GetComponent<Image>().color = Color.green;
         }
     }
-    public void CorrectAnswer() 
+    public void CorrectAnswer()
     {
-        DialoguesManager.Instance.StartDialogueSequenceHandler();
-        QuestionsManager.Instance.HideQuestion();
+        //TODO: Boda => Boda sends us the Answer clicked in unity
+        SceneManager.Instance.LoadNextSequence(questionPhase);
     }
     public void OnQuestionAnswered()
     {

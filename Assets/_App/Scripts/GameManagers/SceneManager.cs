@@ -13,7 +13,7 @@ public class SceneManager : GenericSingleton<SceneManager>
         set
         {
             isCursorActive = value;
-            if (!isCursorActive) 
+            if (!isCursorActive)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -25,8 +25,7 @@ public class SceneManager : GenericSingleton<SceneManager>
             }
         }
     }
-    //Cursor.lockState = CursorLockMode.Locked; // Locks the cursor in the center
-    //Cursor.visible = false; // Hides the cursor
+
     private void Awake()
     {
         IsCursorActive = false;
@@ -35,8 +34,27 @@ public class SceneManager : GenericSingleton<SceneManager>
     private void Start()
     {
         DialoguesManager.Instance.currentSequence = PopGameSequence();
-        DialoguesManager.Instance.StartDialogueSequenceHandler();
+        DialoguesManager.Instance.StartDialogueSequenceHandler(2);
         UIManager.Instance.HideEndGameCanvas();
+    }
+    #region test
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+            WaypointManager.Instance.InitiateWaypointMovement(0, PlayerManager.Instance.CameraContainer.transform);
+    }
+    #endregion
+    public void LoadNextSequence(GameSequencePhase phase)
+    {
+        CameraControl.Instance.LockCamera();
+        WaypointManager.Instance.InitiateWaypointMovement(phase,
+            PlayerManager.Instance.CameraContainer.transform,
+            () =>
+            {
+                DialoguesManager.Instance.StartDialogueSequenceHandler(2);
+                CameraControl.Instance.UnlockCamera();
+            });
+        //QuestionsManager.Instance.HideQuestion();
     }
     public GameSequence PopGameSequence()
     {

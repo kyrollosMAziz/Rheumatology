@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Sequence 2
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: 19a310d4ce427b04b83d95320f91cb65, type: 3}
+  firstAudioClipText: "Given your family history and symptoms, rheumatoid arthritis
+    is something we should consider. I\u2019ll order some blood tests, including
+    rheumatoid factor (RF) and anti-CCP, and we\u2019ll take an X-ray of your hands"
   secondAudioClip: {fileID: 8300000, guid: 08d58cc7abb7d0348a3d608e09259dfb, type: 3}
+  secondAudioClipText: The tests show a positive RF, and the X-ray reveals joint
+    erosion in your hands, which is consistent with rheumatoid arthritis.

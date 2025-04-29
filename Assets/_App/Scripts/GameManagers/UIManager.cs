@@ -8,15 +8,11 @@ public class UIManager : GenericSingleton<UIManager>
 {
     public Canvas endGameCanvas;
 
-    public Button Restart1, Restart2;
+    public Button Restart1;
 
     private void Awake()
     {
         Restart1.onClick.AddListener(() =>
-        {
-            RestartGame();
-        });
-        Restart2.onClick.AddListener(() =>
         {
             RestartGame();
         });
@@ -26,7 +22,6 @@ public class UIManager : GenericSingleton<UIManager>
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         Restart1.onClick = null;
-        Restart2.onClick = null;
     }
     public void ShowEndGameCanvas()
     {

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Sequence 4
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: a33cbf0d5f63f9440b3cbd9d4e84885d, type: 3}
+  firstAudioClipText: "Based on your assessment, we\u2019ll start you on a medication
+    that will slow down the disease progression and help manage symptoms."
   secondAudioClip: {fileID: 0}
+  secondAudioClipText: 

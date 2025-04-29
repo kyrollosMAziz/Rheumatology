@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Sequence 3
   m_EditorClassIdentifier: 
   firstAudioClip: {fileID: 8300000, guid: 04ce09bc937055b42825e3741c5ea82a, type: 3}
+  firstAudioClipText: "We\u2019ll go through a questionnaire to understand how much
+    your symptoms are affecting your daily life. This will help us decide how aggressive
+    your treatment should be"
   secondAudioClip: {fileID: 8300000, guid: 74f44fdc9d1c05046addef961a2a2193, type: 3}
+  secondAudioClipText: I feel fatigued, and the pain often makes it hard to do simple
+    tasks, like holding a cup of coffee
