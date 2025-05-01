@@ -6,11 +6,12 @@ using UnityEngine;
 public class SceneManager : GenericSingleton<SceneManager>
 {
     public List<SerializedPatientPosition> SerializedPatientPositions;
-        
+
     public Queue<GameSequence> GameEventsQueue;
     public List<GameSequence> GameEvents;
     public List<IQuestionAnswered> QuestionsAnswered;
     private bool isCursorActive;
+
     public bool IsCursorActive
     {
         set
@@ -28,6 +29,7 @@ public class SceneManager : GenericSingleton<SceneManager>
             }
         }
     }
+
     public GameSequencePhase currentPhase;
 
     private void Awake()
@@ -35,30 +37,36 @@ public class SceneManager : GenericSingleton<SceneManager>
         IsCursorActive = false;
         GameEventsQueue = new Queue<GameSequence>(GameEvents);
     }
+
     private void Start()
     {
         DialoguesManager.Instance.currentSequence = PopGameSequence();
         DialoguesManager.Instance.StartDialogueSequenceHandler(3);
         UIManager.Instance.HideEndGameCanvas();
     }
+
     #region test
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.L))
             WaypointManager.Instance.InitiateWaypointMovement(0, PlayerManager.Instance.CameraContainer.transform);
     }
+
     #endregion
+
     public void LoadNextSequence(GameSequencePhase phase)
     {
+        print(phase.ToString());
         CameraControl.Instance.LockCamera();
+        
         WaypointManager.Instance.InitiateWaypointMovement(phase,
             PlayerManager.Instance.CameraContainer.transform,
             () =>
             {
-                SceneManager.Instance.SetPlayerPateintTarget();
+                SceneManager.Instance.SetPlayerPateintTarget(phase);
                 DialoguesManager.Instance.StartDialogueSequenceHandler(2);
                 CameraControl.Instance.UnlockCamera();
-                SceneManager.Instance.PlaySequenceAnimation();
             });
         //QuestionsManager.Instance.HideQuestion();
     }
@@ -68,29 +76,12 @@ public class SceneManager : GenericSingleton<SceneManager>
         currentPhase = gameSequencePhase;
     }
 
-    public GameSequencePhase GetCurrentPhase() 
+    public GameSequencePhase GetCurrentPhase()
     {
         return currentPhase;
     }
-    private void PlaySequenceAnimation()
-    {
-        if (!string.IsNullOrEmpty(DialoguesManager.Instance.currentSequence.patientAnimationState))
-        {
-            Pateint.Instance.Animate(DialoguesManager.Instance.currentSequence.patientAnimationState);
-        }
-        else
-        {
-            Pateint.Instance.Animate("idle");
-        }
-        if (!string.IsNullOrEmpty(DialoguesManager.Instance.currentSequence.doctorAnimationState))
-        {
-            Doctor.Instance.Animate(DialoguesManager.Instance.currentSequence.doctorAnimationState);
-        }
-        else
-        {
-            Doctor.Instance.Animate("idle");
-        }
-    }
+
+    
 
     public GameSequence PopGameSequence()
     {
@@ -101,6 +92,7 @@ public class SceneManager : GenericSingleton<SceneManager>
 
         return GameEventsQueue.Dequeue();
     }
+
     public void EndGame()
     {
         UIManager.Instance.ShowEndGameCanvas();
@@ -109,6 +101,7 @@ public class SceneManager : GenericSingleton<SceneManager>
     }
 
     #region ObserverPattern
+
     //public void AssignQuestionAnsweredListeners(IQuestionAnswered questionAnsweredListeners)
     //{
     //    QuestionsAnswered.Add(questionAnsweredListeners);
@@ -124,5 +117,6 @@ public class SceneManager : GenericSingleton<SceneManager>
     //{
     //    QuestionsAnswered.Clear();
     //}
+
     #endregion
 }

@@ -15,7 +15,11 @@ MonoBehaviour:
   firstAudioClip: {fileID: 8300000, guid: 2317764dfe3d90d4a97595a46c278e30, type: 3}
   firstAudioClipText: "I\u2019ve heard about side effects like liver toxicity with
     methotrexate. Is there a safer option?"
+  firstAudioClipAnimationTarget: 1
+  firstAudioClipAnimationState: Patient_Concerned
   secondAudioClip: {fileID: 8300000, guid: 95c255284ff766140adec84accbf99cc, type: 3}
   secondAudioClipText: We could consider a newer option, Olumiant (Baricitinib),
     which targets specific pathways involved in inflammation and might have fewer
     side effects.
+  secondAudioClipAnimationTarget: 0
+  secondAudioClipAnimationState: Dcotor_SwippingAndTapping

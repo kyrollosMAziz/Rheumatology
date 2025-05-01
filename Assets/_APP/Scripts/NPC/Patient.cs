@@ -1,7 +1,8 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Doctor : GenericSingleton<Doctor>
+
+public class Patient : GenericSingleton<Patient>
 {
     private Animator MyAnimator;
 

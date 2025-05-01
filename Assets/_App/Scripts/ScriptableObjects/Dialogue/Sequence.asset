@@ -15,8 +15,12 @@ MonoBehaviour:
   firstAudioClip: {fileID: 8300000, guid: 49e60dfd9503f714b814cab0ee46b3c2, type: 3}
   firstAudioClipText: Good morning, Mrs. Walker. Please, have a seat. How can I help
     you today?
+  firstAudioClipAnimationTarget: 0
+  firstAudioClipAnimationState: 
   secondAudioClip: {fileID: 8300000, guid: dfa88432ac337f840b29c81347419b35, type: 3}
   secondAudioClipText: "Doctor, I\u2019ve been having pain in my joints for several
     months now. It started in my fingers, but now it\u2019s spread to my wrists and
     knees. The pain is worse in the mornings, and sometimes, my joints feel stiff
     for hours."
+  secondAudioClipAnimationTarget: 1
+  secondAudioClipAnimationState: Patient_Explaining

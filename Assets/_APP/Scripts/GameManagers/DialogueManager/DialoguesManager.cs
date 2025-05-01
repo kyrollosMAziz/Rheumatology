@@ -32,14 +32,17 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
         }
 
         StartCoroutine(
-            PlayAudio(currentSequence.firstAudioClip, currentSequence.firstAudioClipText, () => OnAudioEnd()));
+            PlayAudio(currentSequence.firstAudioClip, currentSequence.firstAudioClipText,
+                currentSequence.firstAudioClipAnimationTarget, currentSequence.firstAudioClipAnimationState,
+                () => OnAudioEnd()));
     }
 
-    IEnumerator PlayAudio(AudioClip audioClip, string subtitleText, UnityAction onAudioEnd)
+    IEnumerator PlayAudio(AudioClip audioClip, string subtitleText, AnimationTarget animationTarget,
+        string animationState, UnityAction onAudioEnd)
     {
         yield return new WaitForSeconds(delay);
         //Place black FadeScreen here
-
+        PlaySequenceAnimation(animationTarget, animationState);
         audioSource.clip = audioClip;
         audioSource.Play();
         SubtitleManager.Instance.PopulateText(subtitleText);
@@ -56,11 +59,12 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
             LoadNextQuestion();
             return;
         }
+
         StartCoroutine(PlayAudio(currentSequence.secondAudioClip, currentSequence.secondAudioClipText,
+            currentSequence.secondAudioClipAnimationTarget, currentSequence.secondAudioClipAnimationState,
             () => { LoadNextQuestion(); }));
     }
 
-    //TODO: Marwan => Open Question from Boda's front end
     private void LoadNextQuestion()
     {
         SceneManager.Instance.IsCursorActive = true;
@@ -74,5 +78,18 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
         }
 
         currentSequence = SceneManager.Instance.PopGameSequence();
+    }
+
+    private void PlaySequenceAnimation(AnimationTarget animationTarget, string animationState)
+    {
+        if (string.IsNullOrWhiteSpace(animationState) || string.IsNullOrEmpty(animationState))
+            return;
+
+        if (animationTarget == AnimationTarget.Patient)
+            Patient.Instance.Animate(animationState);
+
+
+        if (animationTarget == AnimationTarget.Doctor)
+            Doctor.Instance.Animate(animationState);
     }
 }

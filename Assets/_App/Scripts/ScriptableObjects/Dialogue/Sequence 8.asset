@@ -15,6 +15,10 @@ MonoBehaviour:
   firstAudioClip: {fileID: 8300000, guid: a180a2fe36ebed1438aaeab78f05b0e0, type: 3}
   firstAudioClipText: "I\u2019m feeling better, but I\u2019ve noticed some mild hair
     thinning."
+  firstAudioClipAnimationTarget: 1
+  firstAudioClipAnimationState: Patient_FollowUpVisit
   secondAudioClip: {fileID: 8300000, guid: 96d8bca7fe054214c8750bd259abf791, type: 3}
   secondAudioClipText: Hair thinning can occur as a side effect. If it becomes bothersome,
     we can consider adjusting your treatment.
+  secondAudioClipAnimationTarget: 0
+  secondAudioClipAnimationState: Dcotor_ReviewingReport
