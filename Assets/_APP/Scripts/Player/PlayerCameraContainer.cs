@@ -14,51 +14,56 @@ public class PlayerCameraContainer : MonoBehaviour
 
     [SerializeField] Transform _patientPosition;
 
-    public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex)
-    {
-        if (waypointSerialized.waypoints.Count <= waypointIndex)
-        {
-            LookAtDoctor();
-            return;
-        }
-        target = waypointSerialized.waypoints[waypointIndex];
-        if (target == null) return;
+    // public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex)
+    // {
+    //     if (waypointSerialized.waypoints.Count <= waypointIndex)
+    //     {
+    //         LookAtDoctor(waypointSerialized.sequencePhase);
+    //         return;
+    //     }
+    //
+    //     target = waypointSerialized.waypoints[waypointIndex];
+    //     if (target == null) return;
+    //
+    //     StartCoroutine(initiateMovement());
+    //
+    //     IEnumerator initiateMovement()
+    //     {
+    //         float distance = Vector3.Distance(transform.position, target.position);
+    //         while (distance > minDistance)
+    //         {
+    //             Vector3 targetPosition = target.position;
+    //             transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmoothSpeed * Time.deltaTime);
+    //             distance = Vector3.Distance(transform.position, target.position);
+    //             if (distance < minDistance)
+    //             {
+    //                 Debug.Log("waslt");
+    //                 waypointIndex++;
+    //                 MoveToTarget(waypointSerialized, waypointIndex);
+    //                 yield return new WaitForEndOfFrame();
+    //                 break;
+    //             }
+    //
+    //             Vector3 direction = target.position - transform.position;
+    //             Quaternion targetRotation = Quaternion.LookRotation(direction);
+    //             transform.rotation =
+    //                 Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+    //             yield return new WaitForEndOfFrame();
+    //         }
+    //     }
+    // }
 
-        StartCoroutine(initiateMovement());
-
-        IEnumerator initiateMovement()
-        {
-            float distance = Vector3.Distance(transform.position, target.position);
-            while (distance > minDistance)
-            {
-                Vector3 targetPosition = target.position;
-                transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmoothSpeed * Time.deltaTime);
-                distance = Vector3.Distance(transform.position, target.position);
-                if (distance < minDistance)
-                {
-                    Debug.Log("waslt");
-                    waypointIndex++;
-                    MoveToTarget(waypointSerialized, waypointIndex);
-                    yield return new WaitForEndOfFrame();
-                    break;
-                }
-
-                Vector3 direction = target.position - transform.position;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
-                yield return new WaitForEndOfFrame();
-            }
-        }
-    }
     public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex, UnityAction unityAction = null)
     {
         if (waypointSerialized.waypoints.Count <= waypointIndex)
         {
-            LookAtDoctor(unityAction);
+            LookAtDoctor(waypointSerialized.sequencePhase, unityAction);
             return;
         }
+
         target = waypointSerialized.waypoints[waypointIndex];
-        if (target == null) 
+
+        if (target == null)
             return;
 
         StartCoroutine(initiateMovement());
@@ -66,6 +71,14 @@ public class PlayerCameraContainer : MonoBehaviour
         IEnumerator initiateMovement()
         {
             float distance = Vector3.Distance(transform.position, target.position);
+
+            if (distance == 0) // this mean en l waypoint in the same place 
+            {
+                LookAtDoctor(waypointSerialized.sequencePhase, unityAction);
+                yield break;
+            }
+
+            print("entered");
             while (distance > minDistance)
             {
                 Vector3 targetPosition = target.position;
@@ -82,24 +95,29 @@ public class PlayerCameraContainer : MonoBehaviour
 
                 Vector3 direction = target.position - transform.position;
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+                transform.rotation =
+                    Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
     }
-    
-    public void LookAtDoctor(UnityAction unityAction = null)
+
+    public void LookAtDoctor(GameSequencePhase phase, UnityAction unityAction = null)
     {
         PostProcessingManager.Instance.ToggleVolume(true, () =>
         {
-            var phase = SceneManager.Instance.currentPhase;
-            _patientPosition = SceneManager.Instance.SerializedPatientPositions.FirstOrDefault(p=>p.Phase == phase).patientPostion;
-            transform.LookAt(_patientPosition);
             QuestionsManager.Instance.HideQuestion();
             PostProcessingManager.Instance.ToggleVolume(false);
+
+            print("look at" + phase.ToString());
+            Patient.Instance.UpdateTransform(phase);
+            Doctor.Instance.UpdateTransform(phase);
+
+            // _patientPosition = SceneManager.Instance.SerializedPatientPositions.FirstOrDefault(p=>p.Phase == phase).patientPostion;
+            // transform.LookAt(Patient.Instance.gameObject.transform.position);
+
             if (unityAction != null) unityAction();
         });
-
     }
 
     //private void Update()
@@ -117,5 +135,4 @@ public class PlayerCameraContainer : MonoBehaviour
     //    Quaternion targetRotation = Quaternion.LookRotation(direction);
     //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
     //}
-
 }

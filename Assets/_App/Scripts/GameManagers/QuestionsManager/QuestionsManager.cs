@@ -12,7 +12,7 @@ public class QuestionsManager : GenericSingleton<QuestionsManager>
         int i = 0;
         foreach (Transform child in transform)
         {
-            child.gameObject.GetComponent<QuestionnaireController>().questionPhase = (GameSequencePhase) i;
+            child.gameObject.GetComponent<QuestionnaireController>().questionPhase = (GameSequencePhase)(i + 1);
             questions.Add(child.gameObject);
             i++;
         }

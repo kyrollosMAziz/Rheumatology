@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SceneManager : GenericSingleton<SceneManager>
 {
-    public List<SerializedPatientPosition> SerializedPatientPositions;
+    // public List<SerializedPatientPosition> SerializedPatientPositions;
 
     public Queue<GameSequence> GameEventsQueue;
     public List<GameSequence> GameEvents;
@@ -49,17 +49,19 @@ public class SceneManager : GenericSingleton<SceneManager>
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.L))
             WaypointManager.Instance.InitiateWaypointMovement(0, PlayerManager.Instance.CameraContainer.transform);
+#endif
     }
 
     #endregion
 
     public void LoadNextSequence(GameSequencePhase phase)
     {
-        print(phase.ToString());
+        print("SceneManager" + phase);
         CameraControl.Instance.LockCamera();
-        
+
         WaypointManager.Instance.InitiateWaypointMovement(phase,
             PlayerManager.Instance.CameraContainer.transform,
             () =>
@@ -81,7 +83,6 @@ public class SceneManager : GenericSingleton<SceneManager>
         return currentPhase;
     }
 
-    
 
     public GameSequence PopGameSequence()
     {
