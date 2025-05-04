@@ -21,6 +21,6 @@ public enum GameSequencePhase
 [Serializable]
 public class WaypointSerialized
 {
-    public List<Transform> waypoints = new List<Transform>();
     public GameSequencePhase sequencePhase;
+    public List<Transform> waypoints = new List<Transform>();
 }

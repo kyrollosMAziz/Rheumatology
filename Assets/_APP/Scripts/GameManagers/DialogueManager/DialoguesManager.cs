@@ -86,10 +86,10 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
             return;
 
         if (animationTarget == AnimationTarget.Patient)
-            Patient.Instance.Animate(animationState);
+            PatientController.Instance.Animate(animationState);
 
 
         if (animationTarget == AnimationTarget.Doctor)
-            Doctor.Instance.Animate(animationState);
+            DoctorController.Instance.Animate(animationState);
     }
 }

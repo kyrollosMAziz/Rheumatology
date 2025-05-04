@@ -110,8 +110,8 @@ public class PlayerCameraContainer : MonoBehaviour
             PostProcessingManager.Instance.ToggleVolume(false);
 
             print("look at" + phase.ToString());
-            Patient.Instance.UpdateTransform(phase);
-            Doctor.Instance.UpdateTransform(phase);
+            PatientController.Instance.UpdateTransform(phase);
+            DoctorController.Instance.UpdateTransform(phase);
 
             // _patientPosition = SceneManager.Instance.SerializedPatientPositions.FirstOrDefault(p=>p.Phase == phase).patientPostion;
             // transform.LookAt(Patient.Instance.gameObject.transform.position);
