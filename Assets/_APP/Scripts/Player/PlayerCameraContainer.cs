@@ -93,10 +93,10 @@ public class PlayerCameraContainer : MonoBehaviour
                     break;
                 }
 
-                Vector3 direction = target.position - transform.position;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                // Vector3 direction = target.position - transform.position;
+                // Quaternion targetRotation = Quaternion.LookRotation(direction);
                 transform.rotation =
-                    Quaternion.Slerp(transform.rotation, targetRotation, lookSmoothSpeed * Time.deltaTime);
+                    Quaternion.Slerp(transform.rotation, target.rotation, lookSmoothSpeed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
