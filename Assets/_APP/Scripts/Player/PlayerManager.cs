@@ -5,5 +5,4 @@ using UnityEngine;
 public class PlayerManager : GenericSingleton<PlayerManager>
 {
     public PlayerCameraContainer CameraContainer;
-    
 }

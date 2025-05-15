@@ -12,7 +12,7 @@ public class PlayerCameraContainer : MonoBehaviour
     public float lookSmoothSpeed = 5f;
     public float minDistance = 0.1f;
 
-    [SerializeField] Transform _patientPosition;
+    public Transform PatientPosition;
 
     // public void MoveToTarget(WaypointSerialized waypointSerialized, int waypointIndex)
     // {
@@ -72,7 +72,7 @@ public class PlayerCameraContainer : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, target.position);
 
-            if (distance == 0) // this mean en l waypoint in the same place 
+            if (distance <= 0.5) // this mean en l waypoint in the same place 
             {
                 LookAtDoctor(waypointSerialized.sequencePhase, unityAction);
                 yield break;
@@ -114,8 +114,10 @@ public class PlayerCameraContainer : MonoBehaviour
             DoctorController.Instance.UpdateTransform(phase);
 
             // _patientPosition = SceneManager.Instance.SerializedPatientPositions.FirstOrDefault(p=>p.Phase == phase).patientPostion;
-            // transform.LookAt(Patient.Instance.gameObject.transform.position);
-
+            if (PatientPosition != null)
+            {
+                transform.LookAt(PatientPosition);
+            }
             if (unityAction != null) unityAction();
         });
     }

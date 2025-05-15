@@ -23,4 +23,5 @@ public class WaypointSerialized
 {
     public GameSequencePhase sequencePhase;
     public List<Transform> waypoints = new List<Transform>();
+    public Transform DoctorTarget;
 }
