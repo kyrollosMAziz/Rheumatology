@@ -12,11 +12,11 @@ public class WaypointManager : GenericSingleton<WaypointManager>
     public void InitiateWaypointMovement(GameSequencePhase _sequencePhase, Transform objectToMove, UnityAction unityAction = null)
     {
         WaypointSerialized _waypointSerialized = _waypoints.FirstOrDefault<WaypointSerialized>(w => w.sequencePhase == _sequencePhase);
-        ChangeLookAtTarget(_waypointSerialized);
         if (_waypointSerialized == null)
         {
             return;
         }
+        ChangeLookAtTarget(_waypointSerialized);
         PlayerManager.Instance.CameraContainer.MoveToTarget(_waypointSerialized, 0, unityAction);
     }
     private void ChangeLookAtTarget(WaypointSerialized _waypointSerialized) 
