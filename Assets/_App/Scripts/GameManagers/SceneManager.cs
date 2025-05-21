@@ -34,7 +34,7 @@ public class SceneManager : GenericSingleton<SceneManager>
 
     private void Awake()
     {
-        IsCursorActive = false;
+        IsCursorActive = true;
         GameEventsQueue = new Queue<GameSequence>(GameEvents);
     }
 

@@ -19,7 +19,7 @@ public class DialoguesManager : GenericSingleton<DialoguesManager>
 
     public void StartDialogueSequenceHandler(float m_delay = 0)
     {
-        SceneManager.Instance.IsCursorActive = false;
+        SceneManager.Instance.IsCursorActive = true;
         if (!currentSequence)
         {
             SceneManager.Instance.EndGame();
