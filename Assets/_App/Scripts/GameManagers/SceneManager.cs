@@ -11,7 +11,8 @@ public class SceneManager : GenericSingleton<SceneManager>
     public List<GameSequence> GameEvents;
     public List<IQuestionAnswered> QuestionsAnswered;
     private bool isCursorActive;
-
+    public GameObject InitialDoctor;
+    public GameObject InitialPatient;
     public bool IsCursorActive
     {
         set
@@ -38,8 +39,10 @@ public class SceneManager : GenericSingleton<SceneManager>
         GameEventsQueue = new Queue<GameSequence>(GameEvents);
     }
 
-    private void Start()
+    public void StartGame()
     {
+        InitialDoctor.gameObject.SetActive(true);
+        InitialPatient.gameObject.SetActive(true);
         DialoguesManager.Instance.currentSequence = PopGameSequence();
         DialoguesManager.Instance.StartDialogueSequenceHandler(3);
         UIManager.Instance.HideEndGameCanvas();

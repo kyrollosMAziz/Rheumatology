@@ -14,6 +14,7 @@ public class WaypointManager : GenericSingleton<WaypointManager>
         WaypointSerialized _waypointSerialized = _waypoints.FirstOrDefault<WaypointSerialized>(w => w.sequencePhase == _sequencePhase);
         if (_waypointSerialized == null)
         {
+            SceneManager.Instance.EndGame();
             return;
         }
         ChangeLookAtTarget(_waypointSerialized);
